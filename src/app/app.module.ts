@@ -56,8 +56,8 @@ import { TranslocoHttpLoader } from './transloco-loader';
     provideHttpClient(withFetch()),
     provideTransloco({
       config: {
-        availableLangs: ['En', 'Fr'],
-        defaultLang: 'En',
+        availableLangs: ['en', 'fr'],
+        defaultLang: 'en',
         reRenderOnLangChange: true,
         prodMode: !isDevMode(),
       },

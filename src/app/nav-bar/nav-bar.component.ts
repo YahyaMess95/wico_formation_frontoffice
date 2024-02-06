@@ -71,8 +71,8 @@ export class NavBarComponent implements OnInit {
   }
 
   isDropdownOpen = false;
-  selectedLanguage = 'En';
-  languageOptions = ['English', 'French'];
+  selectedLanguage = 'en';
+  languageOptions = ['english', 'french'];
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
