@@ -1,5 +1,4 @@
 <div
-  *transloco="let t"
   class="fixed top-0 z-10 h-auto w-full transition duration-500 rounded-b-2xl"
   [class.bg-logo]="isScrolled || showMenu"
 >
@@ -77,7 +76,7 @@
               'bg-gray-700 text-white   ': activeSection === 'home'
             }"
             class="hover:bg-gray-700 m-3 hover:text-white rounded-md px-3 py-1"
-            >{{ t("home.title") }}</a
+            >Accueil</a
           >
 
           <a
@@ -90,7 +89,7 @@
             }"
             class="hover:bg-gray-700 m-3 hover:text-white rounded-md px-3 py-1"
           >
-            {{ t("training.title") }}
+            Formation
           </a>
 
           <a
@@ -103,14 +102,14 @@
             }"
             class="hover:bg-gray-700 m-3 hover:text-white rounded-md px-3 py-1"
           >
-            {{ t("contact.title") }}
+            Contactez-nous
           </a>
           <button
             [class.border-white]="isScrolled || showMenu"
             (click)="openPopup()"
             class="hover:bg-gray-700 m-3 hover:text-white border border-black rounded-md px-3 py-1"
           >
-            {{ t("login_register.title") }}
+            S'identifier / S'enregistrer
           </button>
           <div
             class="relative hover:bg-gray-700 m-3 hover:text-white rounded-md"
@@ -120,7 +119,7 @@
               class="flex items-center border border-black px-3 py-1 rounded-md focus:outline-none"
               (click)="toggleDropdown()"
             >
-              <span>Language: {{ selectedLanguage }}</span>
+              <span>Language: fr</span>
               <svg
                 class="ml-1 h-4 w-4 fill-current hover:text-white"
                 xmlns="http://www.w3.org/2000/svg"
@@ -140,11 +139,9 @@
               class="absolute top-8.8 right-0 w-auto border bg-logo border-black rounded-md shadow-md"
             >
               <div
-                *ngFor="let language of languageOptions"
-                (click)="changeLanguage(language)"
                 class="p-2 cursor-pointer rounded-md hover:bg-gray-700 text-white"
               >
-                {{ language }}
+                fr
               </div>
             </div>
           </div>

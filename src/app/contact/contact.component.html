@@ -1,5 +1,4 @@
 <div
-  *transloco="let t"
   id="Contact"
   class="shadow-lg shadow-indigo-500/50 border-b border-b-gray-200 bg-white flex flex-col"
 >
@@ -8,7 +7,7 @@
       <h2
         class="text-4xl tracking-tight drop-shadow-lg shadow-white text-[#37517e] sm:text-6xl"
       >
-        {{ t("contact.title") }}
+        Contactez-nous
       </h2>
     </div>
     <section class="mb-[4rem]">
@@ -31,7 +30,7 @@
                     formControlName="name"
                     class="peer block min-h-[auto] w-full rounded border-0 py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary"
                     name="user_name"
-                    placeholder=" {{ t('firstname.title') }}"
+                    placeholder=" Prénom"
                     [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
                   />
                   <div
@@ -39,7 +38,7 @@
                     class="invalid-feedback"
                   >
                     <div *ngIf="f['name'].errors['required']">
-                      {{ t("REQUIRED_FIRST_NAME.title") }}
+                      Le prénom est requis.
                     </div>
                   </div>
                 </div>
@@ -51,7 +50,7 @@
                     formControlName="email"
                     email="true"
                     class="peer block min-h-[auto] w-full rounded border-0 py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary"
-                    placeholder="{{ t('email.title') }}"
+                    placeholder="Email"
                     [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
                   />
                   <div
@@ -59,10 +58,10 @@
                     class="invalid-feedback"
                   >
                     <div *ngIf="f['email'].errors['required']">
-                      {{ t("REQUIRED_EMAIL.title") }}
+                      L'e-mail est requis.
                     </div>
                     <div *ngIf="f['email'].errors['email']">
-                      {{ t("INVALID_EMAIL.title") }}
+                      L'e-mail est invalide.
                     </div>
                   </div>
                 </div>
@@ -73,7 +72,7 @@
                     formControlName="message"
                     class="peer block min-h-[auto] w-full rounded border-0 py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200"
                     rows="3"
-                    placeholder="{{ t('message.title') }}"
+                    placeholder="Votre message"
                     [ngClass]="{
                       'is-invalid': submitted && f['message'].errors
                     }"
@@ -83,7 +82,7 @@
                     class="invalid-feedback"
                   >
                     <div *ngIf="f['message'].errors['required']">
-                      {{ t("REQUIRED_Message.title") }}
+                      Le message est requis
                     </div>
                   </div>
                 </div>
@@ -94,7 +93,7 @@
                   data-te-ripple-color="light"
                   class="mb-6 inline-block w-full rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] lg:mb-0"
                 >
-                  {{ t("SEND.title") }}
+                  Envoyer
                 </button>
               </form>
             </div>
@@ -124,7 +123,7 @@
                     </div>
                     <div class="ml-6 grow">
                       <p class="mb-2 font-bold dark:text-white">
-                        {{ t("technicalSupport.title") }}
+                        Support technique
                       </p>
                       <p class="text-neutral-500 dark:text-neutral-200">
                         contact&#64;wico.tn
@@ -159,7 +158,7 @@
                     </div>
                     <div class="ml-6 grow">
                       <p class="mb-2 font-bold dark:text-white">
-                        {{ t("salesQuestions.title") }}
+                        Questions de vente
                       </p>
                       <p class="text-neutral-500 dark:text-neutral-200">
                         contact&#64;wico.tn
@@ -193,9 +192,7 @@
                       </div>
                     </div>
                     <div class="ml-6 grow">
-                      <p class="mb-2 font-bold dark:text-white">
-                        {{ t("press.title") }}
-                      </p>
+                      <p class="mb-2 font-bold dark:text-white">Presse</p>
                       <p class="text-neutral-500 dark:text-neutral-200">
                         contact&#64;wico.tn
                       </p>
@@ -231,7 +228,7 @@
                     </div>
                     <div class="ml-6 grow">
                       <p class="mb-2 font-bold dark:text-white">
-                        {{ t("bugReport.title") }}
+                        Rapport de bug
                       </p>
                       <p class="text-neutral-500 dark:text-neutral-200">
                         contact&#64;wico.tn

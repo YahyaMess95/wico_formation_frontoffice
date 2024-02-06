@@ -27,12 +27,10 @@ import {
   provideHttpClient,
   withFetch,
 } from '@angular/common/http';
-import { TranslocoRootModule } from './transloco-root.module';
+
 import { AuthenticationCardComponent } from './authentication-card/authentication-card.component';
 import { CardsComponent } from './cards/cards.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
-import { provideTransloco } from '@ngneat/transloco';
-import { TranslocoHttpLoader } from './transloco-loader';
 
 @NgModule({
   declarations: [
@@ -51,19 +49,7 @@ import { TranslocoHttpLoader } from './transloco-loader';
     CardsComponent,
     ForgetPasswordComponent,
   ],
-  providers: [
-    provideClientHydration(),
-    provideHttpClient(withFetch()),
-    provideTransloco({
-      config: {
-        availableLangs: ['en', 'fr'],
-        defaultLang: 'en',
-        reRenderOnLangChange: true,
-        prodMode: !isDevMode(),
-      },
-      loader: TranslocoHttpLoader,
-    }),
-  ],
+  providers: [provideClientHydration(), provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
   imports: [
     RouterModule,
@@ -75,7 +61,6 @@ import { TranslocoHttpLoader } from './transloco-loader';
     ReactiveFormsModule,
     MatChipsModule,
     HttpClientModule,
-    TranslocoRootModule,
   ],
 })
 export class AppModule {}

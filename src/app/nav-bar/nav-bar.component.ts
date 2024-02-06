@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 import { AuthenticationCardComponent } from '../authentication-card/authentication-card.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-nav-bar',
@@ -17,7 +16,6 @@ import { TranslocoService } from '@ngneat/transloco';
 export class NavBarComponent implements OnInit {
   constructor(
     public modalService: NgbModal,
-    private translocoService: TranslocoService,
     private el: ElementRef,
     private renderer: Renderer2
   ) {
@@ -66,24 +64,12 @@ export class NavBarComponent implements OnInit {
     });
   }
 
-  switchLanguage(lang: string) {
-    this.translocoService.setActiveLang(lang);
-  }
-
   isDropdownOpen = false;
-  selectedLanguage = 'en';
-  languageOptions = ['english', 'french'];
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
   closeDropdown() {
-    this.isDropdownOpen = false;
-  }
-
-  changeLanguage(language: string) {
-    this.translocoService.setActiveLang(language.substring(0, 2));
-    this.selectedLanguage = language.substring(0, 2);
     this.isDropdownOpen = false;
   }
 }

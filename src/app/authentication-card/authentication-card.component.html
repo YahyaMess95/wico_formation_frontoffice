@@ -1,4 +1,4 @@
-<div class="overflow-auto inset-0 z-30" *transloco="let t">
+<div class="overflow-auto inset-0 z-30">
   <div class="mx-auto flex flex-col bg-white rounded-xl -md overflow-hidden">
     <!-- Row -->
     <button
@@ -26,7 +26,7 @@
     <div class="flex-row p-3 bg-white sm:flex-row md:flex-row lg:flex">
       <div class="w-full lg:w-1/2 px-10">
         <h3 class="pt-4 text-2xl font-semibold text-center">
-          {{ t("welcomeBack.title") }}
+          Bienvenue de retour !
         </h3>
         <form
           [formGroup]="formeSignIn"
@@ -38,13 +38,13 @@
               class="block mb-2 text-sm font-bold text-gray-700"
               for="username"
             >
-              {{ t("username.title") }}
+              Nom d'utilisateur
             </label>
             <input
               class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border border-black rounded appearance-none focus:outline-none"
               id="username"
               type="text"
-              placeholder="{{ t('username.title') }}"
+              placeholder="Nom d'utilisateur"
               formControlName="username"
               [ngClass]="{
                 'is-invalid': submittedIn && fI['username'].errors
@@ -55,10 +55,10 @@
               class="invalid-feedback"
             >
               <div *ngIf="fI['username'].errors['required']">
-                {{ t("usernameRequired.title") }}
+                Le nom d'utilisateur est requis"
               </div>
               <div *ngIf="fI['username'].errors['minlength']">
-                {{ t("usernameLength.title") }}
+                Le nom d'utilisateur doit contenir 6 caractères
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@
               class="block mb-2 text-sm font-bold text-gray-700"
               for="password"
             >
-              {{ t("password.title") }}
+              Mot de passe
             </label>
             <input
               class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-black rounded appearance-none focus:outline-none"
@@ -84,10 +84,10 @@
               class="invalid-feedback"
             >
               <div *ngIf="fI['password'].errors['required']">
-                {{ t("REQUIRED_PASSWORD.title") }}
+                Le mot de passe est requis.
               </div>
               <div *ngIf="fI['password'].errors['minlength']">
-                {{ t("MIN_PASSWORD_LENGTH.title") }}
+                Le mot de passe doit contenir 6 caractères.
               </div>
             </div>
           </div>
@@ -104,7 +104,7 @@
               class="w-full px-4 py-2 font-bold text-white bg-logo rounded-full hover:bg-logo focus:outline-none"
               type="submit"
             >
-              {{ t("signin.title") }}
+              Se connecter
             </button>
           </div>
           <hr class="mb-6 border-t" />
@@ -115,7 +115,7 @@
               class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
               href="#"
             >
-              {{ t("forgetpassword.title") }}
+              Mot de passe oublié ?
             </a>
           </div>
         </form>
@@ -148,7 +148,7 @@
       <!-- MID -->
       <div class="w-full lg:w-7/12 px-10">
         <h3 class="pt-4 text-2xl font-semibold text-center">
-          {{ t("createAnAccount.title") }}
+          Créer un compte!
         </h3>
         <form
           [formGroup]="formeSignUp"
@@ -161,14 +161,14 @@
                 class="block mb-2 text-sm font-bold text-gray-700"
                 for="firstName"
               >
-                {{ t("firstname.title") }}
+                Prénom
               </label>
               <input
                 class="w-full px-3 py-2 text-sm leading-tight border border-black text-gray-700 rounded appearance-none focus:outline-none"
                 id="firstName"
                 type="text"
                 formControlName="firstName"
-                placeholder=" {{ t('firstname.title') }}"
+                placeholder=" Prénom"
                 [ngClass]="{
                   'is-invalid': submittedUp && fU['firstName'].errors
                 }"
@@ -178,10 +178,10 @@
                 class="invalid-feedback"
               >
                 <div *ngIf="fU['firstName'].errors['required']">
-                  {{ t("REQUIRED_FIRST_NAME.title") }}
+                  Le prénom est requis.
                 </div>
                 <div *ngIf="fU['firstName'].errors['minlength']">
-                  {{ t("MIN_FIRST_NAME_LENGTH.title") }}
+                  Le prénom doit contenir 6 caractères.
                 </div>
               </div>
             </div>
@@ -190,13 +190,13 @@
                 class="block mb-2 text-sm font-bold text-gray-700"
                 for="lastName"
               >
-                {{ t("lastname.title") }}
+                Nom
               </label>
               <input
                 class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border border-black rounded appearance-none focus:outline-none"
                 id="lastName"
                 type="text"
-                placeholder=" {{ t('lastname.title') }}"
+                placeholder=" Nom"
                 formControlName="lastName"
                 [ngClass]="{
                   'is-invalid': submittedUp && fU['lastName'].errors
@@ -207,10 +207,10 @@
                 class="invalid-feedback"
               >
                 <div *ngIf="fU['lastName'].errors['required']">
-                  {{ t("REQUIRED_LAST_NAME.title") }}
+                  Le nom est requis.
                 </div>
                 <div *ngIf="fU['lastName'].errors['minlength']">
-                  {{ t("MIN_LAST_NAME_LENGTH.title") }}
+                  Le nom doit contenir 6 caractères.
                 </div>
               </div>
             </div>
@@ -220,13 +220,13 @@
               class="block mb-2 text-sm font-bold text-gray-700"
               for="u_email"
             >
-              {{ t("email.title") }}
+              Email
             </label>
             <input
               class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-black rounded appearance-none focus:outline-none"
               id="u_email"
               type="email"
-              placeholder="{{ t('email.title') }}"
+              placeholder="Email"
               formControlName="u_email"
               [ngClass]="{ 'is-invalid': submittedUp && fU['u_email'].errors }"
             />
@@ -235,10 +235,10 @@
               class="invalid-feedback"
             >
               <div *ngIf="fU['u_email'].errors['required']">
-                {{ t("REQUIRED_EMAIL.title") }}
+                L'e-mail est requis.
               </div>
               <div *ngIf="fU['u_email'].errors['email']">
-                {{ t("INVALID_EMAIL.title") }}
+                L'e-mail est invalide.
               </div>
             </div>
           </div>
@@ -248,7 +248,7 @@
                 class="block mb-2 text-sm font-bold text-gray-700"
                 for="u_Password"
               >
-                {{ t("password.title") }}
+                Mot de passe
               </label>
               <input
                 class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-black rounded appearance-none focus:outline-none"
@@ -265,10 +265,10 @@
                 class="invalid-feedback"
               >
                 <div *ngIf="fU['u_Password'].errors['required']">
-                  {{ t("REQUIRED_PASSWORD.title") }}
+                  Le mot de passe est requis.
                 </div>
                 <div *ngIf="fU['u_Password'].errors['minlength']">
-                  {{ t("MIN_PASSWORD_LENGTH.title") }}
+                  Le mot de passe doit contenir 6 caractères.
                 </div>
               </div>
             </div>
@@ -277,7 +277,7 @@
                 class="block mb-2 text-sm font-bold text-gray-700"
                 for="c_password"
               >
-                {{ t("confirmpassword.title") }}
+                Confirmer le mot de passe
               </label>
               <input
                 class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-black rounded appearance-none focus:outline-none"
@@ -294,10 +294,10 @@
                 class="invalid-feedback"
               >
                 <div *ngIf="fU['c_password'].errors['required']">
-                  {{ t("CONFIRM_PASSWORD.title") }}
+                  Confirmer le mot de passe
                 </div>
                 <div *ngIf="fU['c_password'].hasError('passwordMismatch')">
-                  {{ t("PASSWORDS_DO_NOT_MATCH.title") }}
+                  Les mots de passe ne correspondent pas.
                 </div>
               </div>
             </div>
@@ -307,7 +307,7 @@
               class="w-full px-4 py-2 font-bold text-white bg-logo rounded-full hover:bg-logo focus:outline-none"
               type="submit"
             >
-              {{ t("registeraccount.title") }}
+              Créer un compte
             </button>
           </div>
         </form>

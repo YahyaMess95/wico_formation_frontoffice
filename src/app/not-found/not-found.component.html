@@ -1,5 +1,4 @@
 <div
-  *transloco="let t"
   id="Contact"
   class="m-2 border-r shadow-lg shadow-indigo-500/50 border-b border-l border-t border-gray-400 lg:border lg:border-gray-400 bg-white rounded lg:rounded p-2 flex flex-col"
 >
@@ -8,19 +7,18 @@
   >
     <div class="relative w-full h-full">
       <div class="text-center">
-        <p class="text-3xl text-indigo-600">{{ t("404.title") }}</p>
+        <p class="text-3xl text-indigo-600">404 Non Trouvé</p>
         <p class="mt-6 text-base leading-7 text-gray-600">
-          {{ t("404.message") }}
+          Oups ! La page que vous recherchez n'existe pas.
         </p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
           <a
             href="#"
             class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >{{ t("backhome.title") }}</a
+            >Rentrer à l'Accueil</a
           >
           <a href="#" class="text-sm text-gray-900"
-            >{{ t("technicalSupport.title") }}
-            <span aria-hidden="true">&rarr;</span></a
+            >Support technique <span aria-hidden="true">&rarr;</span></a
           >
         </div>
       </div>
