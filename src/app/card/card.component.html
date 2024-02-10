@@ -37,11 +37,7 @@
         </div>
       </div>
     </div>
-    <div
-      *ngIf="showOverlay"
-      class="overlay rounded-xl"
-      (click)="openPopup(form_info)"
-    >
+    <div *ngIf="showOverlay" class="overlay rounded-xl">
       <button
         (click)="openPopup(form_info)"
         class="bg-gray-700 m-3 text-white rounded-md px-3 py-2"
