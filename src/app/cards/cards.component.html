@@ -1,8 +1,8 @@
-<div id="training" class="bg-white pb-24 flex flex-col">
+<div id="training" class="bg-white md:pb-[104px] pb-[96px] flex flex-col">
   <div class="relative animate-fade-up">
-    <div class="p-6 text-center">
+    <div class="text-center">
       <h2
-        class="text-4xl tracking-tight drop-shadow-lg shadow-white text-[#37517e] sm:text-6xl mb-5 mt-24"
+        class="text-4xl tracking-tight drop-shadow-lg shadow-white text-[#37517e] sm:text-6xl md:mt-16 mt-12"
       >
         Formation
       </h2>
@@ -18,11 +18,11 @@
         <div class="swiper">
           <div
             #swiperContainer
-            class="swiper-container mx-auto max-w-[80rem] rounded-xl flex items-center justify-center"
+            class="swiper-container mx-auto max-w-[80rem] rounded-xl"
           >
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper my-5">
               <app-card
-                class="swiper-slide"
+                class="swiper-slide px-2"
                 *ngFor="let form_info of formationdetails"
                 [form_info]="form_info"
               ></app-card>

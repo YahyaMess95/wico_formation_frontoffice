@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './card.component.css',
 })
 export class CardComponent {
+  showOverlay: boolean = false;
   constructor(public modalService: NgbModal, private route: ActivatedRoute) {}
   routpath: boolean = true;
   @Input() form_info: any;
