@@ -1,0 +1,31 @@
+.swiper-slide {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(36, 57, 92, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(3px);
+}
+
+.overlay-button {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #37517e;
+  border: 2px solid #37517e;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.swiper-slide:hover .overlay {
+  opacity: 1;
+}
