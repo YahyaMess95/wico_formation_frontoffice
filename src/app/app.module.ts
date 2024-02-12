@@ -31,6 +31,7 @@ import {
 import { AuthenticationCardComponent } from './authentication-card/authentication-card.component';
 import { CardsComponent } from './cards/cards.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { AppStateService } from './app-services/app-state.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,11 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     CardsComponent,
     ForgetPasswordComponent,
   ],
-  providers: [provideClientHydration(), provideHttpClient(withFetch())],
+  providers: [
+    provideClientHydration(),
+    provideHttpClient(withFetch()),
+    AppStateService,
+  ],
   bootstrap: [AppComponent],
   imports: [
     RouterModule,

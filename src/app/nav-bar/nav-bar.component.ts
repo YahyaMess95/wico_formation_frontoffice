@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { AuthenticationCardComponent } from '../authentication-card/authentication-card.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AppStateService } from '../app-services/app-state.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -17,7 +18,8 @@ export class NavBarComponent implements OnInit {
   constructor(
     public modalService: NgbModal,
     private el: ElementRef,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private appStateService: AppStateService
   ) {
     this.activeSection = 'home';
   }
@@ -28,6 +30,9 @@ export class NavBarComponent implements OnInit {
       if (!isClickedInside) {
         this.isDropdownOpen = false; // Close the dropdown
       }
+    });
+    this.appStateService.activeSection$.subscribe((section) => {
+      this.activeSection = section;
     });
   }
 

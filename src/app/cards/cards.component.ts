@@ -9,8 +9,9 @@ import {
 
 import { isPlatformBrowser } from '@angular/common';
 import Swiper from 'swiper';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { AppStateService } from '../app-services/app-state.service';
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
@@ -31,7 +32,9 @@ export class CardsComponent implements AfterViewInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private route: ActivatedRoute,
-    private breakpointObserver: BreakpointObserver
+    private router: Router,
+    private breakpointObserver: BreakpointObserver,
+    private appStateService: AppStateService
   ) {}
 
   private initializeSwiper(): void {
@@ -78,6 +81,11 @@ export class CardsComponent implements AfterViewInit {
     if (this.swiperInstance) {
       this.swiperInstance.slidePrev();
     }
+  }
+
+  goToTrainingPage() {
+    this.appStateService.setActiveSection('training');
+    this.router.navigate(['/training']);
   }
 
   ngOnInit() {
