@@ -9,8 +9,8 @@ import { CardsComponent } from './cards/cards.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'training', component: CardsComponent },
-  { path: 'About', component: AboutComponent },
-  { path: 'Services', component: ServicesComponent },
-  { path: 'Contact', component: ContactComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'services', component: ServicesComponent },
+  { path: 'contact', component: ContactComponent },
   { path: '**', component: NotFoundComponent, pathMatch: 'full' },
 ];

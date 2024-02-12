@@ -26,13 +26,28 @@
         <h3 class="tracki uppercase font-bold dark:text-gray-50">Produits</h3>
         <ul class="space-y-1">
           <li>
-            <a rel="noopener noreferrer" href="/home">Accueil</a>
+            <a
+              (click)="goToHomePage()"
+              rel="noopener noreferrer"
+              class="cursor-pointer"
+              >Accueil</a
+            >
           </li>
           <li>
-            <a rel="noopener noreferrer" href="/training">Formation</a>
+            <a
+              (click)="goToTrainingPage()"
+              rel="noopener noreferrer"
+              class="cursor-pointer"
+              >Formation</a
+            >
           </li>
           <li>
-            <a rel="noopener noreferrer" href="/Contact">Contactez-nous</a>
+            <a
+              (click)="goToContactPage()"
+              rel="noopener noreferrer"
+              class="cursor-pointer"
+              >Contactez-nous</a
+            >
           </li>
         </ul>
       </div>
