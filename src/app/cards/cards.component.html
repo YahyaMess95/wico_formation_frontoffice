@@ -1,8 +1,18 @@
-<div id="training" class="bg-white md:pb-[104px] pb-[96px] flex flex-col">
-  <div class="relative animate-fade-up">
+<div
+  id="training"
+  class="bg-white md:pb-[104px] pb-[96px] flex flex-col md:mt-16 mt-12"
+>
+  <div
+    class="relative animate-fade-up"
+    [ngClass]="{
+      'bg-white md:pb-[104px] pb-[96px] flex flex-col md:mt-20 mt-20':
+        activeSection === 'training'
+    }"
+  >
     <div class="text-center">
       <h2
-        class="text-4xl tracking-tight drop-shadow-lg shadow-white text-[#37517e] sm:text-6xl md:mt-16 mt-12"
+        class="text-4xl tracking-tight drop-shadow-lg shadow-white text-[#37517e] sm:text-6xl"
+        [ngClass]="{ 'mb-10': activeSection === 'training' }"
       >
         Formation
       </h2>

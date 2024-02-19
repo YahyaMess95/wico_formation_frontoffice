@@ -10,7 +10,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CardComponent {
   showOverlay: boolean = false;
-  constructor(public modalService: NgbModal, private route: ActivatedRoute) {}
+  activeSection: string;
+  constructor(public modalService: NgbModal, private route: ActivatedRoute) {
+    this.activeSection = 'home';
+  }
   routpath: boolean = true;
   @Input() form_info: any;
   ngOnInit() {
@@ -18,6 +21,7 @@ export class CardComponent {
       const path = url == undefined ? 'home' : url.path;
 
       this.routpath = path == 'home' ? true : false;
+      this.activeSection = path;
     });
   }
 

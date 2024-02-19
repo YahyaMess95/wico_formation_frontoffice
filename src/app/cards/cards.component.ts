@@ -19,6 +19,7 @@ import { AppStateService } from '../app-services/app-state.service';
 })
 export class CardsComponent implements AfterViewInit {
   routpath: boolean = true;
+  activeSection: string;
   private swiperInstance: Swiper | undefined;
   @ViewChild('swiperContainer') swiperContainer!: ElementRef;
   ngAfterViewInit(): void {
@@ -35,7 +36,9 @@ export class CardsComponent implements AfterViewInit {
     private router: Router,
     private breakpointObserver: BreakpointObserver,
     private appStateService: AppStateService
-  ) {}
+  ) {
+    this.activeSection = 'home';
+  }
 
   private initializeSwiper(): void {
     this.swiperInstance = new Swiper('.swiper-container', {
@@ -96,8 +99,14 @@ export class CardsComponent implements AfterViewInit {
           ? this.formationdetails.slice(0, 4)
           : this.formationdetails;
       this.routpath = path == 'home' ? true : false;
+      this.activeSection = path;
     });
   }
+
+  click(Id: string) {
+    this.activeSection = Id;
+  }
+
   formationdetails = [
     {
       path: '../../assets/images/AngularJs.png',
