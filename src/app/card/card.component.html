@@ -4,7 +4,10 @@
   (mouseleave)="showOverlay = false"
 >
   <div
-    class="flex flex-col overflow-hidden transform cursor-pointer max-w-[25rem] sm:w-full mr-4 md:mr-0 transition duration-500 hover:scale-105 rounded-xl border-2 shadow-md bg-white bg-clip-border text-gray-700 relative"
+    class="flex flex-col overflow-hidden transform cursor-pointer max-w-[25rem] sm:w-full mr-4 transition duration-500 hover:scale-105 rounded-xl border-2 shadow-md bg-white bg-clip-border text-gray-700 relative"
+    [ngClass]="{
+      'ml-3.5 md:ml-0 mb-4': activeSection === 'training'
+    }"
     (mouseenter)="showOverlay = true"
     (mouseleave)="showOverlay = false"
   >
