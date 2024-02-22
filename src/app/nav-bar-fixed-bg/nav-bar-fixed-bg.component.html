@@ -1,6 +1,5 @@
 <div
-  class="fixed top-0 z-10 h-auto w-full transition duration-500 rounded-b-2xl"
-  [class.bg-logo]="isScrolled || showMenu"
+  class="fixed top-0 z-10 h-auto w-full transition duration-500 rounded-b-2xl bg-logo"
 >
   <nav
     class="mx-auto flex max-w-full items-center justify-between p-3 lg:px-8 relative flex-wrap px-2"
@@ -13,14 +12,13 @@
         <a href="/">
           <img
             class="h-20 w-auto"
-            src=" {{ '../../assets/images/' + logo + '.png' }}"
+            src=" {{ '../../assets/images/logo.png' }}"
             alt="logo"
           />
         </a>
         <button
           type="button"
-          class="relative lg:hidden inline-flex items-center justify-center rounded-md p-2 text-black hover:text-white"
-          [class.text-white]="isScrolled || showMenu"
+          class="relative lg:hidden inline-flex items-center justify-center rounded-md p-2 text-white hover:text-white"
           aria-controls="mobile-menu"
           aria-expanded="false"
           (click)="toggleNavbar()"
@@ -62,8 +60,7 @@
         </button>
       </div>
       <div
-        class="hidden text-black text-sm leading-6 lg:flex lg:gap-x-12 lg:flex-grow items-center"
-        [class.text-white]="isScrolled || showMenu"
+        class="hidden text-white text-sm leading-6 lg:flex lg:gap-x-12 lg:flex-grow items-center"
         [ngClass]="{ hidden: !showMenu, flex: showMenu }"
       >
         <div class="flex flex-wrap lg:flex-row ml-auto">
@@ -72,9 +69,6 @@
             routerLinkActive="active"
             ariaCurrentWhenActive="page"
             (click)="click('home')"
-            [ngClass]="{
-              'bg-gray-700 text-white': activeSection === 'home'
-            }"
             class="hover:bg-gray-700 m-3 hover:text-white rounded-md px-3 py-1"
           >
             Accueil
@@ -85,10 +79,10 @@
             routerLinkActive="active"
             ariaCurrentWhenActive="page"
             (click)="click('training')"
-            [ngClass]="{
-              'bg-gray-700 text-white ': activeSection === 'training'
-            }"
             class="hover:bg-gray-700 m-3 hover:text-white rounded-md px-3 py-1"
+            [ngClass]="{
+              'bg-gray-700': !showFixedNavBar
+            }"
           >
             Formation
           </a>
@@ -99,7 +93,7 @@
             ariaCurrentWhenActive="page"
             (click)="click('contact')"
             [ngClass]="{
-              'bg-gray-700 text-white ': activeSection === 'contact'
+              'bg-gray-700 text-white ': showFixedNavBar
             }"
             class="hover:bg-gray-700 m-3 hover:text-white rounded-md px-3 py-1"
           >

@@ -32,12 +32,14 @@ import { AuthenticationCardComponent } from './authentication-card/authenticatio
 import { CardsComponent } from './cards/cards.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { AppStateService } from './app-services/app-state.service';
+import { NavBarFixedBgComponent } from './nav-bar-fixed-bg/nav-bar-fixed-bg.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavBarComponent,
+    NavBarFixedBgComponent,
     CarouselComponent,
     CardComponent,
     AboutComponent,
