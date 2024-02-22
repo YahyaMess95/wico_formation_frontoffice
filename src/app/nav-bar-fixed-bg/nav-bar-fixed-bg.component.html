@@ -100,9 +100,8 @@
             Contactez-nous
           </a>
           <button
-            [class.border-white]="isScrolled || showMenu"
             (click)="openPopup()"
-            class="hover:bg-gray-700 m-3 hover:text-white border border-black rounded-md px-3 py-1"
+            class="hover:bg-gray-700 m-3 hover:text-white border border-white rounded-md px-3 py-1"
           >
             S'identifier / S'enregistrer
           </button>
@@ -110,8 +109,7 @@
             class="relative hover:bg-gray-700 m-3 hover:text-white rounded-md"
           >
             <button
-              [class.border-white]="isScrolled || showMenu"
-              class="flex items-center border border-black px-3 py-1 rounded-md focus:outline-none"
+              class="flex items-center border border-white px-3 py-1 rounded-md focus:outline-none"
               (click)="toggleDropdown()"
             >
               <span>Language: fr</span>
@@ -129,9 +127,8 @@
             </button>
 
             <div
-              [class.border-white]="isScrolled || showMenu"
               *ngIf="isDropdownOpen"
-              class="absolute top-8.8 right-0 w-auto border bg-logo border-black rounded-md shadow-md"
+              class="absolute top-8.8 right-0 w-auto border bg-logo border-white rounded-md shadow-md"
             >
               <div
                 class="p-2 cursor-pointer rounded-md hover:bg-gray-700 text-white"
