@@ -1,0 +1,11 @@
+.overlay-color {
+  position: absolute;
+  opacity: 0.8;
+  inset: 0;
+  z-index: -1;
+  mix-blend-mode: multiply;
+}
+
+.border-text {
+  border: solid red;
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -6,9 +6,10 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { ToastrService } from 'ngx-toastr';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-contact',
@@ -18,11 +19,18 @@ import { ToastrService } from 'ngx-toastr';
 export class ContactComponent implements OnInit {
   submitted = false;
   showFixedNavBar: boolean = false;
+  activeSection: string;
+  routpath: boolean = true;
+
   constructor(
     private toastr: ToastrService,
     private formBuilder: FormBuilder,
-    private router: Router
-  ) {}
+    private router: Router,
+    public themeService: ThemeService,
+    private route: ActivatedRoute
+  ) {
+    this.activeSection = 'home';
+  }
 
   Forme: FormGroup = new FormGroup({
     name: new FormControl(''),
@@ -42,11 +50,16 @@ export class ContactComponent implements OnInit {
         this.showFixedNavBar = this.shouldShowFixedNavBar(event.url);
       }
     });
+    this.route.url.subscribe(([url]) => {
+      const path = url == undefined ? 'home' : url.path;
+      this.routpath = path == 'home' ? true : false;
+      this.activeSection = path;
+    });
   }
-
   shouldShowFixedNavBar(url: string): boolean {
     return url.includes('/contact');
   }
+
   get f(): { [key: string]: AbstractControl } {
     return this.Forme.controls;
   }

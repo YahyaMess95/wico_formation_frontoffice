@@ -1,4 +1,8 @@
-<footer class="px-4 relative dark:bg-gray-800 dark:text-gray-100">
+<footer
+  class="px-4 relative dark:text-gray-100"
+  [style.background-color]="themeService.footerBgColor"
+  [style.border-top]="themeService.footerBorderColor"
+>
   <div
     class="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0"
     bis_skin_checked="1"
@@ -13,9 +17,18 @@
           class="flex items-center justify-center w-20 h-20 rounded-full dark:bg-violet-400"
           bis_skin_checked="1"
         >
-          <img src="../../assets/images/logo-b.png " alt="logo" />
+          <img
+            src=" {{
+              '../../assets/images/' + themeService.LogoColor + '.png'
+            }}"
+            alt="logo"
+          />
         </div>
-        <span class="self-center text-2xl">WICO TECHNOLOGY</span>
+        <span
+          class="self-center text-2xl"
+          [style.color]="themeService.footerTitleColor"
+          >WICO TECHNOLOGY</span
+        >
       </a>
     </div>
     <div
@@ -23,8 +36,13 @@
       bis_skin_checked="1"
     >
       <div class="space-y-3" bis_skin_checked="1">
-        <h3 class="tracki uppercase font-bold dark:text-gray-50">Produits</h3>
-        <ul class="space-y-1">
+        <h3
+          class="tracki uppercase font-bold"
+          [style.color]="themeService.footerTitleColor"
+        >
+          Produits
+        </h3>
+        <ul class="space-y-1" [style.color]="themeService.textColor">
           <li>
             <a
               (click)="goToHomePage()"
@@ -52,8 +70,13 @@
         </ul>
       </div>
       <div class="space-y-3" bis_skin_checked="1">
-        <h3 class="tracki uppercase font-bold dark:text-gray-50">Company</h3>
-        <ul class="space-y-1">
+        <h3
+          class="tracki uppercase font-bold"
+          [style.color]="themeService.footerTitleColor"
+        >
+          Company
+        </h3>
+        <ul class="space-y-1" [style.color]="themeService.textColor">
           <li>
             <a rel="noopener noreferrer" href="#"
               >Politique de confidentialité</a
@@ -65,8 +88,13 @@
         </ul>
       </div>
       <div class="space-y-3" bis_skin_checked="1">
-        <h3 class="uppercase font-bold dark:text-gray-50">Developers</h3>
-        <ul class="space-y-1">
+        <h3
+          class="uppercase font-bold"
+          [style.color]="themeService.footerTitleColor"
+        >
+          Developers
+        </h3>
+        <ul class="space-y-1" [style.color]="themeService.textColor">
           <li>
             <a rel="noopener noreferrer" href="#">Public API</a>
           </li>
@@ -79,10 +107,18 @@
         </ul>
       </div>
       <div class="space-y-3" bis_skin_checked="1">
-        <div class="uppercase dark:text-gray-50 font-bold" bis_skin_checked="1">
+        <div
+          class="uppercase font-bold"
+          bis_skin_checked="1"
+          [style.color]="themeService.footerTitleColor"
+        >
           Social media
         </div>
-        <div class="flex justify-start space-x-3" bis_skin_checked="1">
+        <div
+          class="flex justify-start space-x-3"
+          bis_skin_checked="1"
+          [style.color]="themeService.textColor"
+        >
           <a
             rel="noopener noreferrer"
             href="#"
@@ -137,7 +173,11 @@
       </div>
     </div>
   </div>
-  <div class="py-6 text-sm text-center dark:text-gray-400" bis_skin_checked="1">
+  <div
+    class="py-6 text-sm text-center"
+    bis_skin_checked="1"
+    [style.color]="themeService.textColor"
+  >
     © Droits d'auteur WICO. Tous droits réservés. Développé par l'équipe WICO.
   </div>
 </footer>

@@ -8,6 +8,7 @@ import {
 import { AuthenticationCardComponent } from '../authentication-card/authentication-card.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AppStateService } from '../app-services/app-state.service';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -19,7 +20,8 @@ export class NavBarComponent implements OnInit {
     public modalService: NgbModal,
     private el: ElementRef,
     private renderer: Renderer2,
-    private appStateService: AppStateService
+    private appStateService: AppStateService,
+    public themeService: ThemeService
   ) {
     this.activeSection = 'home';
   }

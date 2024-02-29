@@ -1,9 +1,10 @@
 <div
   id="training"
-  class="bg-white flex flex-col shadow-lg shadow-indigo-500/50"
+  class="flex flex-col shadow-lg shadow-indigo-500/50"
   [ngClass]="{
     'md:pt-16 pt-12 md:pb-[104px] pb-[96px]': activeSection === 'home'
   }"
+  [style.background-color]="themeService.bgColor"
 >
   <div
     class="relative animate-fade-up"
@@ -13,8 +14,9 @@
   >
     <div class="text-center">
       <h2
-        class="text-4xl tracking-tight drop-shadow-lg shadow-white text-[#37517e] sm:text-6xl"
+        class="text-4xl tracking-tight drop-shadow-lg shadow-white sm:text-6xl"
         [ngClass]="{ 'mb-10': activeSection === 'training' }"
+        [style.color]="themeService.textColor"
       >
         Formation
       </h2>
@@ -50,7 +52,10 @@
           class="absolute w-full items-center justify-center text-center rounded-full mx-auto"
         >
           <button
-            class="flex-1 md:text-xl bottom-0 h-10 bg-white px-3 py-1 rounded-full border-3 border-blue-500 p-1 shadow-lg"
+            class="flex-1 md:text-xl bottom-0 h-10 px-3 py-1 rounded-full border-3 p-1 shadow-lg"
+            [style.background-color]="themeService.bgColor"
+            [style.color]="themeService.cardTagTextColor"
+            [style.border-color]="themeService.cardTagBorderColor"
           >
             <a
               (click)="goToTrainingPage()"
