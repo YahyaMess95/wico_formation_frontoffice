@@ -1,0 +1,14 @@
+/* theme-switcher.component.css */
+.theme-switcher {
+  padding: 20px;
+}
+
+.light-theme {
+  background-color: #fff;
+  color: #000;
+}
+
+.dark-theme {
+  background-color: #333;
+  color: #fff;
+}

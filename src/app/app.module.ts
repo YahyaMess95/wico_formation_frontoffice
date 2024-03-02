@@ -33,6 +33,7 @@ import { CardsComponent } from './cards/cards.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { AppStateService } from './app-services/app-state.service';
 import { NavBarFixedBgComponent } from './nav-bar-fixed-bg/nav-bar-fixed-bg.component';
+import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { NavBarFixedBgComponent } from './nav-bar-fixed-bg/nav-bar-fixed-bg.comp
     AuthenticationCardComponent,
     CardsComponent,
     ForgetPasswordComponent,
+    ThemeSwitcherComponent,
   ],
   providers: [
     provideClientHydration(),

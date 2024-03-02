@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CardDetailsComponent } from '../card-details/card-details.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-card',
@@ -11,7 +12,11 @@ import { ActivatedRoute } from '@angular/router';
 export class CardComponent {
   showOverlay: boolean = false;
   activeSection: string;
-  constructor(public modalService: NgbModal, private route: ActivatedRoute) {
+  constructor(
+    public modalService: NgbModal,
+    private route: ActivatedRoute,
+    public themeService: ThemeService
+  ) {
     this.activeSection = 'home';
   }
   routpath: boolean = true;
@@ -23,6 +28,13 @@ export class CardComponent {
       this.routpath = path == 'home' ? true : false;
       this.activeSection = path;
     });
+  }
+
+  get bgColor() {
+    return this.themeService.bgColor;
+  }
+  get textColor() {
+    return this.themeService.textColor;
   }
 
   openPopup(form_info: any) {

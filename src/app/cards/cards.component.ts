@@ -12,6 +12,7 @@ import Swiper from 'swiper';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { AppStateService } from '../app-services/app-state.service';
+import { ThemeService } from '../theme.service';
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
@@ -35,7 +36,8 @@ export class CardsComponent implements AfterViewInit {
     private route: ActivatedRoute,
     private router: Router,
     private breakpointObserver: BreakpointObserver,
-    private appStateService: AppStateService
+    private appStateService: AppStateService,
+    public themeService: ThemeService
   ) {
     this.activeSection = 'home';
   }
@@ -101,6 +103,18 @@ export class CardsComponent implements AfterViewInit {
       this.routpath = path == 'home' ? true : false;
       this.activeSection = path;
     });
+  }
+
+  get textColor() {
+    return this.themeService.textColor;
+  }
+
+  get bgColor() {
+    return this.themeService.bgColor;
+  }
+
+  get cardDetailsTextColor() {
+    return this.themeService.cardDetailsTextColor;
   }
 
   click(Id: string) {
