@@ -20,6 +20,7 @@ import { ThemeService } from '../theme.service';
 })
 export class CardsComponent implements AfterViewInit {
   routpath: boolean = true;
+  isLoading: boolean = true;
   activeSection: string;
   formationdetails: any[] = [];
   private swiperInstance: Swiper | undefined;
@@ -179,6 +180,7 @@ export class CardsComponent implements AfterViewInit {
             this.formationdetails = formationDetails.sort(
               (a, b) => Date.parse(b.begin) - Date.parse(a.begin)
             );
+            this.isLoading = false;
           })
           .catch((error) => {
             console.error('Error processing formations:', error);
