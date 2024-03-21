@@ -29,3 +29,21 @@
 .swiper-slide:hover .overlay {
   opacity: 1;
 }
+
+
+.clamp-container {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+.description-text {
+  height: 7.5rem;
+  overflow: hidden;
+  line-height: 1.5;
+  /* adjust line height as needed */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}

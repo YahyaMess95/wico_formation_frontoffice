@@ -49,13 +49,12 @@
         </div>
         <div class="block mt-3 text-l leading-tight">
           <mat-chip-set class="example-chip">
-            @for (tag of form_info.tags ; track tag) {
             <mat-basic-chip
+              *ngFor="let tag of splitTags(form_info.tags)"
               class="bg-white inline-flex py-0.5 px-3 items-center justify-between text-[#37517e] text-base capitalize border-2 border-gray-500 rounded-full mb-2 mr-2"
             >
               <span class="capitalize lg:inline leading-5">{{ tag }}</span>
             </mat-basic-chip>
-            }
           </mat-chip-set>
         </div>
       </div>

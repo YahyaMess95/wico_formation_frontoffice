@@ -9,4 +9,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class CardDetailsComponent {
   @Input() form_info: any;
   constructor(public activeModal: NgbActiveModal) {}
+  splitTags(tagsString: string): string[] {
+    // Split the tags string by spaces or commas
+    return tagsString.split(/[,\s]+/);
+  }
 }

@@ -21,8 +21,11 @@ import { ThemeService } from '../theme.service';
 export class CardsComponent implements AfterViewInit {
   routpath: boolean = true;
   activeSection: string;
+  formationdetails: any[] = [];
   private swiperInstance: Swiper | undefined;
+
   @ViewChild('swiperContainer') swiperContainer!: ElementRef;
+
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       setTimeout(() => {
@@ -31,6 +34,7 @@ export class CardsComponent implements AfterViewInit {
       });
     }
   }
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private route: ActivatedRoute,
@@ -39,13 +43,18 @@ export class CardsComponent implements AfterViewInit {
     private appStateService: AppStateService,
     public themeService: ThemeService
   ) {
+    this.loadFormations();
     this.activeSection = 'home';
   }
 
   private initializeSwiper(): void {
-    this.swiperInstance = new Swiper('.swiper-container', {
-      slidesPerView: 3,
+    if (!this.swiperContainer || !this.swiperContainer.nativeElement) {
+      console.error('Swiper container element not found.');
+      return;
+    }
 
+    this.swiperInstance = new Swiper(this.swiperContainer.nativeElement, {
+      slidesPerView: 3,
       // Navigation arrows
       navigation: {
         nextEl: '.swiper-button-next',
@@ -103,6 +112,7 @@ export class CardsComponent implements AfterViewInit {
       this.routpath = path == 'home' ? true : false;
       this.activeSection = path;
     });
+    // console.log(this.formationdetails);
   }
 
   get textColor() {
@@ -121,61 +131,76 @@ export class CardsComponent implements AfterViewInit {
     this.activeSection = Id;
   }
 
-  formationdetails = [
-    {
-      path: '../../assets/images/AngularJs.png',
-      title: 'AngularJS',
-      begin: '06/01/2023',
-      end: '16/01/2023',
-      description:
-        'Master the fundamentals of AngularJS, the powerful JavaScript framework, in this comprehensive training. Learn to build dynamic and responsive web applications using declarative programming techniques.',
-      hours: '2h/j',
-      location: 'Online',
-      tags: ['JavaScript', 'AngularJS', 'TypeScript', 'HTML', 'CSS', 'SCSS'],
-    },
-    {
-      path: '../../assets/images/JS.png',
-      title: 'JavaScript',
-      begin: '07/01/2023',
-      end: '16/01/2023',
-      description:
-        'Unleash the power of JavaScript with our dynamic formation. Dive into the fundamentals of this versatile programming language, from basic syntax to advanced concepts.',
-      hours: '2h/j',
-      location: 'Online',
-      tags: ['JavaScript'],
-    },
-    {
-      path: '../../assets/images/tailwind.png',
-      title: 'Tailwind',
-      begin: '02/01/2023',
-      end: '5/01/2023',
-      description:
-        'Elevate your web design skills with our Tailwind Formation. Delve into the modern utility-first CSS framework, Tailwind CSS, and learn to craft visually stunning and responsive user interfaces effortlessly.',
-      hours: '3h/j',
-      location: 'Tunisa',
-      tags: ['Tailwinds', 'CSS', 'HTML'],
-    },
-    {
-      path: '../../assets/images/HTML.png',
-      title: 'HTML',
-      begin: '02/01/2023',
-      end: '12/01/2023',
-      description:
-        'Explore the foundational language of the web with our HTML Formation. Perfect for beginners and those looking to solidify their skills, this course guides you through the essentials of HTML.',
-      hours: '3h/j',
-      location: 'Online',
-      tags: ['HTML', 'CSS'],
-    },
-    {
-      path: '../../assets/images/typscript.jpg',
-      title: 'TypeScript',
-      begin: '07/01/2023',
-      end: '17/01/2023',
-      description:
-        'Transform your JavaScript development with our TypeScript Formation. This course is designed for developers seeking enhanced maintainability and scalability in their projects.',
-      hours: '2h/j',
-      location: 'Tunisa',
-      tags: ['TypeScript', 'JavaScript', 'HTML'],
-    },
-  ].sort((a, b) => Date.parse(b.begin) - Date.parse(a.begin));
+  loadFormations() {
+    this.appStateService.getAllSessions(0, 0).subscribe(
+      (response) => {
+        const sessiondetails = response.session;
+        const formationPromises: Promise<any>[] = [];
+
+        sessiondetails.forEach((session: any) => {
+          session.formations.forEach((formationId: string) => {
+            const formationPromise = new Promise((resolve, reject) => {
+              this.appStateService.getOneFormation(formationId).subscribe(
+                (formationResponse) => {
+                  this.appStateService.getPhoto(session.photo).subscribe(
+                    (photoData: any) => {
+                      resolve({
+                        path: photoData, // Assuming photoData is already a data URL
+                        title: formationResponse.formation.name,
+                        begin: new Date(session.datedeb).toLocaleDateString(),
+                        end: session.endDate,
+                        description: formationResponse.formation.description,
+                        hours: session.hoursPerDay,
+                        location: session.type,
+                        tags: formationResponse.formation.tags,
+                      });
+                    },
+                    (error: any) => {
+                      console.error('Error fetching user photo:', error);
+                      reject(error);
+                    }
+                  );
+                },
+                (error: any) => {
+                  console.error(
+                    `Error retrieving formation with ID ${formationId}:`,
+                    error
+                  );
+                  reject(error);
+                }
+              );
+            });
+            formationPromises.push(formationPromise);
+          });
+        });
+
+        Promise.all(formationPromises)
+          .then((formationDetails: any[]) => {
+            this.formationdetails = formationDetails.sort(
+              (a, b) => Date.parse(b.begin) - Date.parse(a.begin)
+            );
+          })
+          .catch((error) => {
+            console.error('Error processing formations:', error);
+          });
+      },
+      (error: any) => {
+        console.error('Error fetching sessions:', error);
+      }
+    );
+  }
+
+  // formationdetails = [
+  //   {
+  //     path: '../../assets/images/AngularJs.png',
+  //     title: 'AngularJS',
+  //     begin: '06/01/2023',
+  //     end: '16/01/2023',
+  //     description:
+  //       'Master the fundamentals of AngularJS, the powerful JavaScript framework, in this comprehensive training. Learn to build dynamic and responsive web applications using declarative programming techniques.',
+  //     hours: '2h/j',
+  //     location: 'Online',
+  //     tags: ['JavaScript', 'AngularJS', 'TypeScript', 'HTML', 'CSS', 'SCSS'],
+  //   },
+  // ].sort((a, b) => Date.parse(b.begin) - Date.parse(a.begin));
 }

@@ -36,6 +36,10 @@ export class CardComponent {
   get textColor() {
     return this.themeService.textColor;
   }
+  splitTags(tagsString: string): string[] {
+    // Split the tags string by spaces or commas
+    return tagsString.split(/[,\s]+/);
+  }
 
   openPopup(form_info: any) {
     const modalRef = this.modalService.open(CardDetailsComponent, {
